@@ -1,8 +1,23 @@
 <?php
 // ここはサーバーからデータを取ってくる動作
+
+// 空の変数
 $str = '';
 
+echo('<pre>');
+var_dump($str);
+echo($str);
+echo('</pre>');
+
+
+// 空の配列
 $array = [];
+
+echo('<pre>');
+var_dump($array);
+// echo($array);←echoは値にしか使えないので配列に使うとエラーが出る。
+echo('</pre>');
+
 
 // ファイルを開く（’develop_database/todo.txt’という,'読み込みのみで'）；
 $file = fopen('develop_database/todo.txt','r');
@@ -11,19 +26,25 @@ flock($file,LOCK_EX);
 
 // ↓だと'develop_database/todo.txt'の一行目だけしか読み取り出来ない
 // $read_date= fgets($file);
-// echo $read_date;
-if($file){
-  while($line = fgets($file)){
-  $str .="<div>{$line}</div>";
 
-  $array[] = ['username'=>explode(' ',$line)[0],'comment'=>explode(' ',$line)[1],'date'=> str_replace("\n",'',explode(' ',$line)[2])];
+// if(ファイルが開けたなら){
+if($file){
+  //   while『し続ける』（$line= 一行読み取る。($file)から) ）{
+  while($line = fgets($file)){
+    // $strに .=文字列を足す。それは"<div>{$line}</div>"；
+  $str .="<div>{$line}</div>";
+// phpの配列の短縮構文
+// explode(' 'の部分で区切った,$lineという文字列の)[0]の番目、
+  $array[] = ['username'=>explode(' ',$line)[0],
+  // str_replace置き換える("\n"という文字を,''に,explode(' ',$line)[2]の中にある)
+  'comment'=>explode(' ',$line)[1],'date'=> str_replace("\n",'',explode(' ',$line)[2])];
 }
 }
 // var_dump($str);
 echo('<pre>');
 var_dump($array);
 echo('</pre>');
-exit();
+
 
 // （$file＝『読み込み専用で開いた’develop_database/todo.txt’』をアンロックする）；
 flock($file,LOCK_UN);
@@ -60,5 +81,10 @@ fclose($file);
     <div class="S">
     <?=$str?>
   </div>
+
+  <script>
+    const array = <?=json_encode($array)?>;
+    console.log(array)
+  </script>
 </body>
 </html>

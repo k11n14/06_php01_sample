@@ -1,5 +1,8 @@
 <?php
+// ここはサーバーからデータを取ってくる動作
 $str = '';
+
+$array = [];
 
 // ファイルを開く（’develop_database/todo.txt’という,'読み込みのみで'）；
 $file = fopen('develop_database/todo.txt','r');
@@ -12,9 +15,15 @@ flock($file,LOCK_EX);
 if($file){
   while($line = fgets($file)){
   $str .="<div>{$line}</div>";
-  }
+
+  $array[] = ['username'=>explode(' ',$line)[0],'comment'=>explode(' ',$line)[1],'date'=> str_replace("\n",'',explode(' ',$line)[2])];
+}
 }
 // var_dump($str);
+echo('<pre>');
+var_dump($array);
+echo('</pre>');
+exit();
 
 // （$file＝『読み込み専用で開いた’develop_database/todo.txt’』をアンロックする）；
 flock($file,LOCK_UN);

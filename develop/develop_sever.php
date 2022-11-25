@@ -1,4 +1,5 @@
 <?php
+// こちらはサーバでの動作
 echo('<pre>');
 // $_POSTという形でデータが送られてくる。
 // 中身を確認
@@ -10,8 +11,9 @@ $user_name = $_POST["user_name"];
 $comment =$_POST["comment"];
 
 // それぞれのデータを入れた変数を一つの$input_all_dateという変数にまとめる。
-//↓と書き方が違うだけ $input_all_date =$_POST["user_name"].$_POST["comment"];
-$input_all_date ="{$_POST["user_name"]}{$_POST["comment"]}\n";
+//↓と書き方が違うだけ
+//  $input_all_date =$_POST["user_name"].$_POST["comment"];
+$input_all_date ="{$_POST["user_name"]} {$_POST["comment"]}\n";
 echo $input_all_date;
 
 // 書き込み専用で'develop_database/todo.txt'を開く。

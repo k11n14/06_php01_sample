@@ -1,10 +1,11 @@
 <?php
 // こちらはサーバでの動作
-echo('<pre>');
+
 // $_POSTという形でデータが送られてくる。
-// 中身を確認
-var_dump($_POST);
-echo('</pre>');
+// その中身を確認
+// echo('<pre>');
+// var_dump($_POST);
+// echo('</pre>');
 
 // それぞれのデータを変数に入れ込む。
 $user_name = $_POST["user_name"];
@@ -14,10 +15,10 @@ $comment =$_POST["comment"];
 //↓と書き方が違うだけ
 //  $input_all_date =$_POST["user_name"].$_POST["comment"];
 $input_all_date ="{$_POST["user_name"]} {$_POST["comment"]}\n";
-echo $input_all_date;
+// echo $input_all_date;
 
 // 書き込み専用で'develop_database/todo.txt'を開く。
-$file = fopen('develop_database/todo.txt','a');
+$file = fopen('develop_database/su-sann.txt','a');
 // ファイルをロックする
 flock($file,LOCK_EX);
 

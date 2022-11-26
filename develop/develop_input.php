@@ -3,21 +3,21 @@
 
 // 空の変数
 $str = '';
-
-echo('<pre>');
-var_dump($str);
-echo($str);
-echo('</pre>');
+// 確認用
+// echo('<pre>');
+// var_dump($str);
+// echo($str);
+// echo('</pre>');
 
 
 // 空の配列
 $array = [];
 
 // 配列みたいになっているか確認する。
-echo('<pre>');
-var_dump($array);
+// echo('<pre>');
+// var_dump($array);
 // echo($array);←echoは値にしか使えないので配列に使うとエラーが出る。
-echo('</pre>');
+// echo('</pre>');
 
 
 // ファイルを開く（’develop_database/todo.txt’という,'読み込みのみで'）；
@@ -46,9 +46,9 @@ if($file){
 }
 }
 // var_dump($str);
-echo('<pre>');
-var_dump($array);
-echo('</pre>');
+// echo('<pre>');
+// var_dump($array);
+// echo('</pre>');
 
 
 // （$file＝『読み込み専用で開いた’develop_database/todo.txt’』をアンロックする）；
@@ -64,6 +64,7 @@ fclose($file);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>入力画面</title>
+  <link rel="stylesheet" href="./css/develop.css">
 </head>
 <body>
   <form action="develop_sever.php" method="POST">
@@ -80,9 +81,6 @@ fclose($file);
       </div>
     </fieldset>
   </form>
-  <div class="F">
-    
-    </div>
     <div class="S">
     <?=$str?>
   </div>
@@ -91,6 +89,18 @@ fclose($file);
     const array = <?=json_encode($array)?>;
     console.log(array)
   </script>
-  <div>Gitテスト</div>
+<code>
+<p> &lt;!DOCTYPE html&gt;</p>
+  <p> &lt;html lang="ja"&gt;</p>
+  <p> &lt;head&gt;</p>
+    <p> &lt;meta charset="UTF-8"&gt;</p>
+    <p> &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</p>
+    <p> &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+    <p> &lt;title&gt;Document&lt;/title&gt;</p>
+  <p> &lt;/head&gt;</p>
+  <p> &lt;body&gt;</p>
+  <p> &lt;/body&gt;</p>
+  <p> &lt;/html&gt;</p>
+</code>
 </body>
 </html>

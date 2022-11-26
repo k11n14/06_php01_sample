@@ -30,7 +30,7 @@ flock($file,LOCK_UN);
 fclose($file);
 
 // develop_input.phpに戻る。
-// header('Location:develop_input.php')
+header('Location:develop_input.php')
 
 
 ?>

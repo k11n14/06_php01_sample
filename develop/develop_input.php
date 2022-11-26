@@ -13,6 +13,7 @@ echo('</pre>');
 // 空の配列
 $array = [];
 
+// 配列みたいになっているか確認する。
 echo('<pre>');
 var_dump($array);
 // echo($array);←echoは値にしか使えないので配列に使うとエラーが出る。
@@ -35,9 +36,13 @@ if($file){
   $str .="<div>{$line}</div>";
 // phpの配列の短縮構文
 // explode(' 'の部分で区切った,$lineという文字列の)[0]の番目、
-  $array[] = ['username'=>explode(' ',$line)[0],
+  $array[] = [
+  'username'=>explode(' ',$line)[0],
   // str_replace置き換える("\n"という文字を,''に,explode(' ',$line)[2]の中にある)
-  'comment'=>explode(' ',$line)[1],'date'=> str_replace("\n",'',explode(' ',$line)[2])];
+  'comment'=>explode(' ',$line)[1],
+  // 入力欄として存在しないためにコメントアウト
+  // 'date'=> str_replace("\n",'',explode(' ',$line)[2])
+];
 }
 }
 // var_dump($str);

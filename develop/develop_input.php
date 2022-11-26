@@ -91,5 +91,6 @@ fclose($file);
     const array = <?=json_encode($array)?>;
     console.log(array)
   </script>
+  <div>Gitテスト</div>
 </body>
 </html>

@@ -1,0 +1,23 @@
+/* body{
+  color: red;
+} */
+
+/* p{
+  color: blue;
+  margin: 0px;
+} */
+
+.text_area {
+	/* color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+.question_area {
+	color: blue;
+}
+
+.answer_area {
+	color: red;
+}
